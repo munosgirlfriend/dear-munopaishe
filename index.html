@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dear Munopaishe 🤍</title>
+
+<style>
+body{
+margin:0;
+font-family:"Segoe UI",sans-serif;
+background:linear-gradient(180deg,#000814,#001d3d);
+color:#e6f0ff;
+overflow-x:hidden;
+}
+
+header{
+background:linear-gradient(135deg,#001d3d,#003566);
+color:white;
+text-align:center;
+padding:70px 20px;
+position:relative;
+}
+
+section{
+padding:50px 15%;
+}
+
+h2{color:#9ecbff;}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+margin-bottom:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* FLOATING HEARTS */
+.heart{
+position:fixed;
+bottom:-30px;
+font-size:22px;
+color:white;
+animation:float 8s linear infinite;
+cursor:pointer;
+opacity:0.8;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-110vh);opacity:0;}
+}
+
+/* SECRET */
+.secret{text-align:center;}
+input{
+padding:12px;
+border-radius:25px;
+border:none;
+text-align:center;
+outline:none;
+}
+
+button{
+background:#9ecbff;
+color:#001d3d;
+border:none;
+padding:10px 25px;
+border-radius:25px;
+margin-top:10px;
+cursor:pointer;
+font-weight:600;
+}
+button:hover{opacity:0.85;}
+
+#letter{
+margin-top:30px;
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+display:none;
+line-height:1.8;
+}
+
+footer{
+background:#001d3d;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+/* LOVE NOTE POPUP */
+#note{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#ffffff;
+color:#001d3d;
+padding:25px 30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+display:none;
+max-width:300px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Dear Munopaishe 🤍</h1>
+<p>A little corner of the internet made just for you</p>
+<p><i>Your loving girlfriend</i></p>
+</header>
+
+<section>
+<h2>Hi Muno 🤍</h2>
+<div class="card">
+<p>
+This space exists for one reason and that reason is you. You deserve to be appreciated loved and reminded of how special you are every single day. This is just a small way of showing you how much you mean to me.
+</p>
+</div>
+</section>
+
+<section>
+<h2>✨ Why You’re Amazing</h2>
+<div class="card">
+<h3>Your humor</h3>
+<p>You make me laugh even when I don’t feel like smiling. Your jokes your silliness and the way you lighten every moment is something I treasure so much.</p>
+</div>
+<div class="card">
+<h3>Your patience</h3>
+<p>You handle me with so much calm and understanding. You never make me feel like I am too much and that means everything to me.</p>
+</div>
+<div class="card">
+<h3>Your heart</h3>
+<p>You love so gently and purely. Being loved by you feels safe and warm and that is something I will always appreciate.</p>
+</div>
+</section>
+
+<section class="secret">
+<h2>🔐 Secret Page</h2>
+<p>Enter password</p>
+<input type="password" id="pass">
+<br><br>
+<button onclick="check()">Unlock</button>
+
+<div id="letter">
+<p>
+Munopaishe my love  
+<br><br>
+Loving you has been one of the most genuine and beautiful things I have ever experienced. From the smallest moments to the ones that stay with me long after they pass you have become such an important part of my life. You make me feel seen in a way that feels rare and special. You know me you understand me and you still choose me every single day  
+<br><br>
+With you I feel safe enough to be soft honest and real. You never rush me or make me feel like I need to change to be loved. Your patience your reassurance and the way you show up for me even when things are not easy means more to me than I can ever explain. Being loved by you feels calm steady and warm and that is something I will never take for granted  
+<br><br>
+I appreciate you so deeply for your heart your kindness and the way you love me so purely. You are my comfort my best friend my peace and my favorite place to be. I am endlessly grateful for you and for us and I am so thankful that I get to love you  
+<br><br>
+Your loving girlfriend
+</p>
+</div>
+</section>
+
+<footer>
+<p>Made with love 🤍</p>
+</footer>
+
+<div id="note" onclick="this.style.display='none'"></div>
+
+<script>
+const loveNotes=[
+"I choose you every day",
+"You are my safe place",
+"I love the way you love me",
+"You mean more to me than you know",
+"My heart feels at home with you",
+"You are my favorite person"
+];
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="🤍";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*18+14+"px";
+heart.onclick=()=>{
+let note=document.getElementById("note");
+note.innerHTML=loveNotes[Math.floor(Math.random()*loveNotes.length)];
+note.style.display="block";
+heart.remove();
+};
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8000);
+},500);
+
+function check(){
+let p=document.getElementById("pass").value;
+if(p==="waffles"){
+document.getElementById("letter").style.display="block";
+}
+}
+</script>
+
+</body>
+</html>
